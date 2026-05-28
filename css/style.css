@@ -24,7 +24,6 @@
   --warning: #ca8a04;
 }
 
-
 * { box-sizing: border-box; }
 
 body {
@@ -106,14 +105,12 @@ label {
 input,
 select,
 button {
+  width: 100%;
   border-radius: 14px;
   border: 1px solid var(--border);
   padding: 12px 14px;
   font: inherit;
 }
-
-button, .mini-select { width: 100%; }
-
 
 input,
 select {
@@ -179,7 +176,6 @@ select {
   color: var(--text);
 }
 
-
 .transactions-list {
   list-style: none;
   padding: 0;
@@ -205,7 +201,6 @@ select {
   border-color: var(--warning);
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(248, 113, 113, 0.12));
 }
-
 
 .transaction-meta strong { display: block; }
 
