@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense & Budget Visualizer</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero-card">
+        <p class="eyebrow">Daily spending tracker</p>
+        <h1>Expense & Budget Visualizer</h1>
+        <p class="subtitle">Track your spending, review your history, and spot where your money goes.</p>
+      </header>
+
+      <section class="panel balance-card">
+        <p class="label">Total Balance</p>
+        <h2 id="total-balance">$1,000.00</h2>
+        <p id="spent-label" class="muted">Spent so far: $0.00</p>
+      </section>
+
+      <section class="grid-layout">
+        <article class="panel form-card">
+          <h3>Add Transaction</h3>
+          <form id="transaction-form" novalidate>
+            <label for="item-name">Item Name</label>
+            <input id="item-name" name="item-name" type="text" placeholder="e.g. Lunch" required />
+
+            <label for="amount">Amount</label>
+            <input id="amount" name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required />
+
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+              <option value="">Choose a category</option>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Fun">Fun</option>
+            </select>
+
+            <label for="custom-category">Custom Category (optional)</label>
+            <input id="custom-category" name="custom-category" type="text" placeholder="Add your own category" />
+
+            <label for="monthly-limit">Monthly Spending Limit</label>
+            <input id="monthly-limit" name="monthly-limit" type="number" min="0" step="1" placeholder="e.g. 300" />
+
+            <button type="submit" class="primary-btn">Add Transaction</button>
+            <p id="form-message" class="form-message" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="panel chart-card">
+          <h3>Spending by Category</h3>
+          <canvas id="category-chart" width="260" height="260"></canvas>
+        </article>
+      </section>
+
+      <section class="panel list-card">
+        <div class="list-header">
+          <h3>Recent Transactions</h3>
+          <div class="toolbar-row">
+            <label for="sort-select" class="inline-label">Sort</label>
+            <select id="sort-select" class="mini-select">
+              <option value="recent">Recent</option>
+              <option value="amount">Amount</option>
+              <option value="category">Category</option>
+            </select>
+            <button id="theme-toggle" class="ghost-btn" type="button">🌙 Dark Mode</button>
+          </div>
+        </div>
+        <div id="monthly-summary" class="summary-grid"></div>
+        <p id="limit-alert" class="limit-alert"></p>
+        <ul id="transactions-list" class="transactions-list"></ul>
+      </section>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
